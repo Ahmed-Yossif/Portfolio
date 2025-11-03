@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Yossif | Project Manager & Digital Transformation Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --gray: #e2e8f0;
+            --text: #2d3748;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            color: white;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 70px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,138.7C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+        
+        .header-text {
+            text-align: center;
+        }
+        
+        .header-text h1 {
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-text h2 {
+            color: var(--gray);
+            border: none;
+            font-weight: 400;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        
+        .header-text h2:after {
+            display: none;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Section Styles */
+        .section-content {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 35px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            display: inline-block;
+            background: rgba(49, 130, 206, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .skill-item:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .achievement-card {
+            background: var(--light);
+            padding: 25px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .achievement-year {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(49, 130, 206, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 70px 0 40px;
+        }
+        
+        .references-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .reference-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        .reference-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .reference-card h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .reference-card p {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .skills-grid, .achievement-grid, .references-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-content {
+                padding: 30px;
+            }
+            
+            .timeline-item {
+                padding: 20px;
+            }
+            
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+            
+            .section-content {
+                padding: 25px;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="container">
+            <nav>
+                <div class="logo">Ahmed Yossif</div>
+                <div class="nav-links">
+                    <a href="#summary">Summary</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#references">References</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-container">
+                    <img src="https://sanishtech.com/i/690913e1a7a5d-1762202593.jpg" alt="Ahmed Yossif" class="profile-img">
+                </div>
+                <div class="header-text">
+                    <h1>Ahmed Yossif</h1>
+                    <h2>Project Manager | Digital Transformation & Public Sector Expert</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cairo, Egypt</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+20 100 262 2701</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>yossif.mosaada@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Professional Summary -->
+        <section id="summary">
+            <div class="section-title">
+                <i class="fas fa-user-tie"></i>
+                <h2>Professional Summary</h2>
+            </div>
+            <div class="section-content">
+                <p>A dedicated Project Manager with over 15 years of experience in Egypt's public sector, leading national digital transformation initiatives within the Ministry of Planning and Economic Development. Skilled in managing cross-functional teams, overseeing project lifecycles, and implementing strategic reforms that enhance operational efficiency, transparency, and service delivery. Demonstrated ability to coordinate with governmental and international stakeholders, ensuring effective execution of large-scale ICT and public service modernization projects.</p>
+            </div>
+        </section>
+
+        <!-- Key Achievements -->
+        <section id="achievements">
+            <div class="section-title">
+                <i class="fas fa-trophy"></i>
+                <h2>Key Achievements</h2>
+            </div>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-year">2023 - present</div>
+                    <p>Led the development of integrated national information systems for births, deaths, and child immunizations, improving data accuracy and interoperability.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-year">2023</div>
+                    <p>Managed the launch of Egypt's Population Health Indicators Map (The New Administrative Capital, Egypt), providing reliable data for public health decision-making.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-year">2022</div>
+                    <p>Chaired the Medical Committee for the Islamic Development Bank Annual Meetings (Sharm El-Sheikh) serving over 4,000 participants from 57 countries.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-year">2019-2021</div>
+                    <p>Directed the Executive Secretariat of the Minister of Planning and Economic Development.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-year">2018</div>
+                    <p>Oversaw the Police Departments Automation Project (Alexandria) covering 17 departments under the e-government program.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <div class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Education</h2>
+            </div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2025 – Present</div>
+                        <h3>Pre-Doctorate (DBA) in Business Administration</h3>
+                        <p>Beni Suef University, Egypt</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015</div>
+                        <h3>Master of Business Administration (MBA) in Financial Management</h3>
+                        <p>Arab Academy for Banking and Financial Sciences, Cairo, Egypt</p>
+                    </div>
+                    <div class="timeline-item">
+                        
+                        <h3>Bachelor of Commerce in Finance and Investment</h3>
+                        <p>Cairo University, Egypt</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experience">
+            <div class="section-title">
+                <i class="fas fa-briefcase"></i>
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">June 2021 – Present</div>
+                        <h3>Project Manager – Health Services and Development Initiatives</h3>
+                        <p>National Information Infrastructure Center – Ministry of Planning, Economic Development, and International Cooperation | Cairo, Egypt</p>
+                        <ul>
+                            <li>Manage and coordinate strategic projects in Egypt's health digital transformation framework.</li>
+                            <li>Oversee integrated systems including the National Birth and Death Registration System, Child Immunization Information System, and Population Health Indicators Map.</li>
+                            <li>Ensure compliance with digital governance standards and national data frameworks.</li>
+                            <li>Prepare performance reports and dashboards to support policymaking and decision support systems.</li>
+                            <li>Collaborate with ministries, international partners, and private sector vendors to sustain project efficiency.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2018 – June 2021</div>
+                        <h3>Senior Executive Secretary to the Minister of Planning and Economic Development</h3>
+                        <p>Ministry of Planning and Economic Development | Cairo, Egypt</p>
+                        <ul>
+                            <li>Coordinated ministerial communications, correspondence, and official documentation.</li>
+                            <li>Organized high-level meetings, conferences, and official missions domestically and internationally.</li>
+                            <li>Ensured confidentiality and timely execution of directives issued by the Minister's Office.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2015 – June 2018</div>
+                        <h3>Executive Manager – Police Departments Automation Project</h3>
+                        <p>Government Services Development Program – Ministry of Planning and Administrative Reform | Cairo, Egypt</p>
+                        <ul>
+                            <li>Directed the automation of 17 police departments in Alexandria as part of Egypt's e-government program.</li>
+                            <li>Monitored implementation, testing, and rollout of IT systems for data management and citizen services.</li>
+                            <li>Enhanced service delivery speed and transparency through digital workflows and centralized monitoring.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">July 2014 – June 2015</div>
+                        <h3>Auditor – Financial Control Department</h3>
+                        <p>Ministry of State for Administrative Development | Cairo, Egypt</p>
+                        <ul>
+                            <li>Reviewed payroll and contractual payments for government employees and service providers.</li>
+                            <li>Participated in bid evaluation committees ensuring compliance with financial regulations.</li>
+                            <li>Provided periodic audit reports for senior management review.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">February 2005 – June 2014</div>
+                        <h3>Project Coordinator – Local Administration Automation Project</h3>
+                        <p>Government Services Development Program – Ministry of State for Administrative Development | Cairo, Egypt</p>
+                        <ul>
+                            <li>Coordinated project activities across multiple governorates under the national e-government initiative.</li>
+                            <li>Prepared technical and financial documentation supporting project planning and execution.</li>
+                            <li>Liaised with beneficiaries and contractors to ensure project milestones were achieved.</li>
+                            <li>Developed progress presentations and reporting templates for management use.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-title">
+                <i class="fas fa-cogs"></i>
+                <h2>Skills</h2>
+            </div>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-item">Project Management</div>
+                    <div class="skill-item">Strategic Planning</div>
+                    <div class="skill-item">Digital Transformation</div>
+                    <div class="skill-item">e-Government Development</div>
+                    <div class="skill-item">Public Sector Reform</div>
+                    <div class="skill-item">Financial Oversight</div>
+                    <div class="skill-item">Team Leadership</div>
+                    <div class="skill-item">Communication and Reporting</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages & IT Skills -->
+        <section id="languages-it">
+            <div class="section-title">
+                <i class="fas fa-language"></i>
+                <h2>Languages & IT Skills</h2>
+            </div>
+            <div class="section-content">
+                <h3>Languages</h3>
+                <p>Arabic (Native), English (Good command)</p>
+                
+                <h3>IT Skills</h3>
+                <p>Advanced in Microsoft Office Suite (Word, Excel, PowerPoint, Outlook) and internet-based project tools.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with References -->
+    <footer id="references">
+        <div class="container">
+            <h2 style="color: white; border-bottom: 2px solid var(--accent);">References</h2>
+            <p style="color: var(--gray);">All supporting documents (certificates, psychometric test results, and detailed records) can be accessed via: 
+                <a href="https://drive.google.com/drive/folders/15ETH3vGR7hwN3DbisBJP1f5UN5a9HXCI?usp=sharing" style="color: white; text-decoration: underline;">Google Drive Link</a>
+            </p>
+            
+            <div class="references-list">
+                <div class="reference-card">
+                    <h4>Eng. Mohamed Abdelazim</h4>
+                    <p>Director, National Information Infrastructure Center</p>
+                    <p>+20 100 336 6225</p>
+                </div>
+                <div class="reference-card">
+                    <h4>Dr. Kamal Nasr</h4>
+                    <p>Assistant Minister of Planning and Economic Development</p>
+                    <p>+20 101 609 8959</p>
+                </div>
+                <div class="reference-card">
+                    <h4>Prof. Hatem Elkady</h4>
+                    <p>Cairo University & Former Program Director, Government Services Development</p>
+                    <p>+20 100 140 1012</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Last Updated: November 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
