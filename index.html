@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - أحمد يوسف | Ahmed Yossif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d3748;
+            --accent-color: #3182ce;
+            --gold-color: #d4af37;
+            --light-color: #f7fafc;
+            --dark-color: #1a202c;
+            --text-color: #2d3748;
+            --light-text: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --section-spacing: 2.5rem;
+        }
+
+        .dark-mode {
+            --primary-color: #2d3748;
+            --secondary-color: #4a5568;
+            --accent-color: #4299e1;
+            --light-color: #2d3748;
+            --dark-color: #1a202c;
+            --text-color: #e2e8f0;
+            --light-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-family: 'Cairo', 'Tajawal', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+
+        .language-en {
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2c5282);
+            color: var(--light-text);
+            padding: 3rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(135deg, #2d3748, #1a365d);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="1000,100 1000,0 0,100"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .personal-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .personal-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .personal-info h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 280px;
+        }
+
+        .language-en .contact-info {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item.phone-ar {
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn, .theme-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lang-btn:hover, .theme-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active, .theme-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: var(--section-spacing);
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .section {
+            background: var(--dark-color);
+            border: 1px solid #4a5568;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .dark-mode .section-title {
+            color: var(--light-text);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .language-en .section-title::after {
+            right: auto;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, var(--light-color), #e2e8f0);
+            padding: 1.2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .skill-item {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            border: 1px solid #4a5568;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, var(--accent-color), #2c5282);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        .timeline {
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .language-en .timeline {
+            padding-right: 0;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 7px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-color), var(--primary-color));
+            border-radius: 3px;
+        }
+
+        .language-en .timeline::before {
+            right: auto;
+            left: 7px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -2.2rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .language-en .timeline-item::before {
+            right: auto;
+            left: -2.2rem;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            background: var(--light-color);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dark-mode .timeline-date {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .dark-mode .timeline-content h3 {
+            color: var(--light-text);
+        }
+
+        .timeline-content p {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .dark-mode .timeline-content p {
+            color: #cbd5e0;
+        }
+
+        .timeline-content ul {
+            list-style-type: none;
+            padding-right: 1rem;
+        }
+
+        .language-en .timeline-content ul {
+            padding-right: 0;
+            padding-left: 1rem;
+        }
+
+        .timeline-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .language-en .timeline-content li {
+            padding-right: 0;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            right: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .language-en .timeline-content li::before {
+            right: auto;
+            left: 0;
+        }
+
+        .achievements-list, .education-list, .certificates-list, .projects-list, .training-list {
+            list-style-type: none;
+        }
+
+        .achievements-list li, .education-list li, .certificates-list li, .projects-list li, .training-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: var(--transition);
+            line-height: 1.7;
+        }
+
+        .dark-mode .achievements-list li, 
+        .dark-mode .education-list li, 
+        .dark-mode .certificates-list li, 
+        .dark-mode .projects-list li,
+        .dark-mode .training-list li {
+            border-bottom: 1px solid #4a5568;
+        }
+
+        .achievements-list li:hover, .education-list li:hover, .certificates-list li:hover, .projects-list li:hover, .training-list li:hover {
+            background: var(--light-color);
+            padding-right: 1rem;
+            border-radius: 8px;
+        }
+
+        .dark-mode .achievements-list li:hover, 
+        .dark-mode .education-list li:hover, 
+        .dark-mode .certificates-list li:hover, 
+        .dark-mode .projects-list li:hover,
+        .dark-mode .training-list li:hover {
+            background: #2d3748;
+        }
+
+        .language-en .achievements-list li:hover, 
+        .language-en .education-list li:hover, 
+        .language-en .certificates-list li:hover, 
+        .language-en .projects-list li:hover,
+        .language-en .training-list li:hover {
+            padding-right: 0;
+            padding-left: 1rem;
+        }
+
+        .achievements-list li:last-child, .education-list li:last-child, .certificates-list li:last-child, .projects-list li:last-child, .training-list li:last-child {
+            border-bottom: none;
+        }
+
+        .education-list strong, .projects-list strong, .training-list strong {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .dark-mode .education-list strong, 
+        .dark-mode .projects-list strong,
+        .dark-mode .training-list strong {
+            color: var(--light-text);
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .language-ar {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .language-en {
+            direction: ltr;
+            text-align: left;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .text-block {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .text-block:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                margin-top: 1.5rem;
+                width: 100%;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .personal-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .personal-info h2 {
+                font-size: 1.3rem;
+            }
+            
+            .section {
+                padding: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .timeline {
+                padding-right: 1.5rem;
+            }
+            
+            .timeline-item::before {
+                right: -1.8rem;
+            }
+            
+            .language-en .timeline {
+                padding-left: 1.5rem;
+            }
+            
+            .language-en .timeline-item::before {
+                left: -1.8rem;
+            }
+            
+            .controls {
+                justify-content: center;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-color), #edf2f7);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-right: 5px solid var(--accent-color);
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .language-en .highlight-box {
+            border-right: none;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .dark-mode .highlight-box {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .dark-mode .highlight-box h3 {
+            color: var(--light-text);
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            background: var(--accent-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .arabic-decoration {
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.03;
+            color: var(--primary-color);
+            z-index: 0;
+            font-weight: bold;
+        }
+
+        .dark-mode .arabic-decoration {
+            color: var(--light-text);
+        }
+        
+        .personal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        
+        .dark-mode .detail-item {
+            border-bottom: 1px dashed #4a5568;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .dark-mode .detail-label {
+            color: var(--light-text);
+        }
+        
+        .detail-value {
+            color: var(--secondary-color);
+        }
+        
+        .dark-mode .detail-value {
+            color: #cbd5e0;
+        }
+        
+        .training-program {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            border-right: 4px solid var(--accent-color);
+        }
+        
+        .dark-mode .training-program {
+            background: #2d3748;
+        }
+        
+        .training-program h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .dark-mode .training-program h4 {
+            color: var(--light-text);
+        }
+        
+        .training-program p {
+            color: var(--secondary-color);
+            line-height: 1.7;
+        }
+        
+        .dark-mode .training-program p {
+            color: #cbd5e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="personal-info">
+                    <h1 id="name">احمد محمد احمد يوسف</h1>
+                    <h2 id="title">مدير مشروعات | خبير إدارة المشروعات والتحول الرقمي وتطوير الخدمات الحكومية</h2>
+                    <div class="controls">
+                        <button class="lang-btn active" id="btn-ar">
+                            <i class="fas fa-language"></i> العربية
+                        </button>
+                        <button class="lang-btn" id="btn-en">
+                            <i class="fas fa-language"></i> English
+                        </button>
+                        <button class="theme-btn" id="btn-theme">
+                            <i class="fas fa-moon"></i> الوضع الليلي
+                        </button>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="location">القاهرة، مصر</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>yossif.mosaada@gmail.com</span>
+                    </div>
+                    <div class="contact-item phone-ar">
+                        <i class="fas fa-phone"></i>
+                        <span id="phone">+20 100 262 2701</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- النسخة العربية -->
+            <div id="arabic-portfolio" class="language-ar">
+                <!-- الملخص المهني -->
+                <section class="section">
+                    <div class="arabic-decoration" style="top: 20px; left: 20px;">سيرة ذاتية</div>
+                    <h2 class="section-title"><i class="fas fa-user-tie"></i> الملخص المهني</h2>
+                    <div class="text-block">
+                        <p><strong>مدير مشروعات</strong> بخبرة تزيد عن 15 عامًا في القطاع الحكومي، متخصص في <strong>إدارة وتنفيذ المشروعات الاستراتيجية</strong> و<strong>قيادة</strong> مبادرات التحول الرقمي <strong>لتطوير</strong> <strong>وتحسين الخدمات العامة</strong>، خبرة واسعة في <strong>قيادة الفرق متعددة التخصصات</strong> وتنسيق العمليات مع <strong>الجهات الحكومية والدولية</strong>، خبرة في تحقيق <strong>تكامل قواعد البيانات واستدامة المشروعات</strong>، مرن في <strong>مواجهة التحديات وابتكار حلول</strong> تدعم تنفيذ <strong>الأهداف الاستراتيجية</strong>، وملم <strong>بالقوانين واللوائح</strong> المنظمة للعمل الحكومي <strong>وإدارة مقاومة التغيير المؤسسي</strong> عبر <strong>استراتيجيات</strong> تواصل فعّالة.</p>
+                    </div>
+                </section>
+
+                <!-- المهارات الأساسية -->
+                <section class="section">
+                    <div class="arabic-decoration" style="bottom: 20px; right: 20px;">مهارات</div>
+                    <h2 class="section-title"><i class="fas fa-cogs"></i> المهارات الأساسية</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">إدارة المشاريع الاستراتيجية</div>
+                        <div class="skill-item">التحول الرقمي</div>
+                        <div class="skill-item">تطوير الخدمات الحكومية</div>
+                        <div class="skill-item">إدارة أصحاب المصلحة</div>
+                        <div class="skill-item">تكامل قواعد البيانات</div>
+                        <div class="skill-item">إدارة التغيير</div>
+                        <div class="skill-item">التخطيط الاستراتيجي</div>
+                        <div class="skill-item">تحليل البيانات</div>
+                        <div class="skill-item">إدارة المخاطر</div>
+                        <div class="skill-item">استمرارية الأعمال</div>
+                        <div class="skill-item">إدارة العمليات التنفيذية</div>
+                        <div class="skill-item">متابعة الأداء</div>
+                        <div class="skill-item">إدارة المراسلات السرية</div>
+                        <div class="skill-item">الحوكمة المؤسسية</div>
+                        <div class="skill-item">إدارة الفرق الافتراضية</div>
+                    </div>
+                </section>
+
+                <!-- الإنجازات -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> الإنجازات</h2>
+                    <ul class="achievements-list">
+                        <li>تطوير <strong>أنظمة البنية المعلوماتية</strong> لأنظمة <strong>تسجيل المواليد والوفيات والتطعيمات الروتينية</strong>، أسهمت في <strong>تحسين كفاءة الخدمات الصحية وتكامل قواعد البيانات</strong> وتحقيق <strong>التغطية الشاملة للتطعيمات</strong> بنسبة 95% (يونيو 2021 - الآن)</li>
+                        <li><strong>إطلاق خريطة مؤشرات الصحة والسكانية</strong> خلال <strong>المؤتمر الأول للصحة والسكان</strong> بالعاصمة الإدارية الجديدة لدعم <strong>التخطيط الصحي</strong> المبني على الأدلة (سبتمبر 2023)</li>
+                        <li><strong>رئاسة اللجنة الطبية</strong> خلال <strong>الاجتماعات السنوية لمجموعة البنك الإسلامي للتنمية</strong> بشرم الشيخ، وتقديم خدمات لأكثر من 4000 مشارك من 57 دولة (يونيو 2022)</li>
+                        <li><strong>إدارة السكرتارية التنفيذية لوزيرة التخطيط والتنمية الاقتصادية</strong> (2019 - 2022)</li>
+                        <li><strong>إدارة وتنفيذ مشروع ميكنة وتكامل أقسام الشرطة</strong> بمديرية أمن الإسكندرية، <strong>بتغطية 17 قسم شرطة</strong>، لدعم <strong>التحول الرقمي</strong> (2015 - 2018)</li>
+                    </ul>
+                </section>
+
+                <!-- التعليم -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> التعليم</h2>
+                    <ul class="education-list">
+                        <li>
+                            <strong>تمهيدي دكتوراه DBA، إدارة أعمال</strong>
+                            <p>كلية الدراسات العليا، جامعة بني سويف، مصر (فبراير 2025 - حتى الآن)</p>
+                        </li>
+                        <li>
+                            <strong>ماجستير إدارة الأعمال MBA، إدارة مالية</strong>
+                            <p>الأكاديمية العربية للعلوم المالية والمصرفية، القاهرة، مصر (فبراير 2015)</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- الخبرات العملية -->
+                <section class="section">
+                    <div class="arabic-decoration" style="top: 50%; right: 30px;">خبرات</div>
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> الخبرات العملية</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">يوليو 2021 - حتى الآن</div>
+                            <div class="timeline-content">
+                                <h3>مدير مشروعات تطوير الخدمات والمبادرات الصحية</h3>
+                                <p>مركز البنية المعلوماتية لمنظومة التخطيط المصرية، وزارة التخطيط والتنمية الاقتصادية والتعاون الدولي، القاهرة، مصر</p>
+                                <ul>
+                                    <li>إدارة العمليات التنفيذية والأنشطة المالية لمشروعات أنظمة البنية المعلوماتية المتكاملة</li>
+                                    <li>التخطيط والتطوير وتوجيه فرق العمل لتحقيق أهداف واستراتيجيات المؤسسة</li>
+                                    <li>متابعة تنفيذ المشروعات لضمان أعلى مستويات الأداء والكفاءة التشغيلية</li>
+                                    <li>تحليل وتوثيق العمليات التشغيلية والمشكلات وتطوير حلول فعّالة</li>
+                                    <li>إدارة الاجتماعات الدورية للمشروعات ومتابعة المخرجات لضمان التنفيذ الفعلي للتوصيات</li>
+                                    <li>ضمان توافق نتائج المشروعات مع الأهداف الاستراتيجية ومؤشرات الأداء</li>
+                                    <li>التواصل والتنسيق مع الجهات الحكومية والشركاء المحليين والدوليين لضمان التكامل</li>
+                                    <li>ابتكار ودراسة فرص استثمارية جديدة لدعم تطوير واستدامة المشروعات</li>
+                                    <li>تقييم المقترحات الاستثمارية ومراجعتها وفق سياسات واستراتيجيات المؤسسة</li>
+                                    <li>المشاركة في إعداد اتفاقيات التعاون مع الجهات المستفيدة وضمان الالتزام بتنفيذها</li>
+                                    <li>إعداد تقارير إنجاز دورية لدعم متخذي القرار وصنع السياسات</li>
+                                    <li>تعزيز العلاقات مع الشركاء الاستراتيجيين لضمان استدامة الأعمال</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">يوليو 2018 - يونيو 2021</div>
+                            <div class="timeline-content">
+                                <h3>السكرتير التنفيذي الأول لوزيرة التخطيط والتنمية الاقتصادية</h3>
+                                <p>قطاع مكتب الوزير، وزارة التخطيط والتنمية الاقتصادية، القاهرة، مصر</p>
+                                <ul>
+                                    <li>إعداد وتنظيم جدول أعمال الرئيس المباشر وتنسيق المواعيد والاجتماعات الرسمية</li>
+                                    <li>إدارة الوثائق والمراسلات السرية وضمان حفظها وفق أعلى معايير الأمان</li>
+                                    <li>التنسيق مع الجهات الخارجية والوحدات الداخلية لتوفير التقارير والمتابعة</li>
+                                    <li>تقديم الدعم للرئيس المباشر في المهام الرسمية داخل الدولة وخارجها</li>
+                                    <li>إدارة المكالمات الهاتفية والمراسلات الرسمية وفق الأولويات</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">يوليو 2015 - يونيو 2018</div>
+                            <div class="timeline-content">
+                                <h3>مدير تنفيذي لمشروع ميكنة أقسام الشرطة</h3>
+                                <p>برنامج تطوير الخدمات الحكومية، وزارة التخطيط والمتابعة والإصلاح الإداري، القاهرة، مصر</p>
+                                <ul>
+                                    <li>الإشراف على تنفيذ مشروع ميكنة أقسام الشرطة بمحافظة الإسكندرية</li>
+                                    <li>تطوير آليات العمل والإجراءات التشغيلية لرفع كفاءة الخدمات المقدمة</li>
+                                    <li>تحليل وتوثيق العمليات التشغيلية ووضع حلول لتحسين الأداء والاستدامة</li>
+                                    <li>تنسيق الاجتماعات الدورية بين الفرق التنفيذية والجهات المشاركة</li>
+                                    <li>إعداد تقارير متابعة دورية تتضمن نسب الإنجاز والتوصيات الفنية والإدارية</li>
+                                    <li>المساهمة في دعم منظومة التحول الرقمي الحكومية عبر تطبيق نظم مؤتمتة لتبادل البيانات</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">يوليو 2014 - يونيو 2015</div>
+                            <div class="timeline-content">
+                                <h3>مراجع حسابات</h3>
+                                <p>الإدارة المركزية للشئون المالية والإدارية، وزارة الدولة للتنمية الإدارية، القاهرة، مصر</p>
+                                <ul>
+                                    <li>مراجعة وصرف المستحقات المالية وفق اللوائح والقوانين المنظمة للأجور والحوافز</li>
+                                    <li>الإشراف على إعداد كشوف المرتبات والمكافآت وإعداد تقارير مالية دورية</li>
+                                    <li>التنسيق مع البنوك ووزارة المالية لضمان دقة وسرعة عمليات الصرف والتحويل</li>
+                                    <li>مراجعة مستندات الموردين والمشاركة في لجان البت في المناقصات</li>
+                                    <li>متابعة تطبيق السياسات والإجراءات المالية وضمان الالتزام بمعايير المحاسبة الحكومية</li>
+                                    <li>المساهمة في تحسين نظم الرقابة المالية والإدارية داخل المؤسسة</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">فبراير 2005 - يونيو 2014</div>
+                            <div class="timeline-content">
+                                <h3>مساعد مدير مشروع / منسق مشروع / سكرتير - مشروع ربط وميكنة المحليات</h3>
+                                <p>برنامج تطوير الخدمات الحكومية، وزارة الدولة للتنمية الإدارية، القاهرة، مصر</p>
+                                <ul>
+                                    <li>متابعة تنفيذ خطط العمل والإجراءات الإدارية والمالية وفق اللوائح الحكومية</li>
+                                    <li>الإشراف على إعداد خطط العمل التنفيذية وتحديد المسؤوليات لكل مرحلة</li>
+                                    <li>مراجعة وتحليل المشكلات التشغيلية وتقديم حلول لضمان استمرارية التنفيذ</li>
+                                    <li>إعداد العروض التقديمية وتقارير الأداء ومؤشرات الإنجاز لدعم اتخاذ القرار</li>
+                                    <li>التنسيق مع فرق العمل لضمان تكامل الجهود في جميع مراحل التنفيذ</li>
+                                    <li>تنظيم الاجتماعات الدورية مع الجهات المنفذة والمستفيدة ومتابعة توصياتها</li>
+                                    <li>تمثيل المشروع في الفعاليات والمؤتمرات الرسمية والتواصل مع الجهات الحكومية</li>
+                                    <li>إدارة المراسلات الرسمية والملفات والسجلات وصياغة التقارير والمذكرات الرسمية</li>
+                                    <li>تقديم الدعم الإداري لأعضاء الفريق لضمان سير العمل اليومي بكفاءة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- الخبرات التدريبية -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> الخبرات التدريبية</h2>
+                    <div class="text-block">
+                        <p><strong>خبرة في تصميم وتنفيذ البرامج التدريبية المتخصصة للعاملين في المستويات القيادية ومكاتب تقديم الخدمات الحكومية،</strong> بهدف <strong>رفع كفاءة الأداء المؤسسي، وتعزيز القدرات القيادية والإدارية، ودعم التحول الرقمي وتحسين كفاءة الخدمات العامة،</strong> وتشمل أبرز البرامج التدريبية ما يلي:</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>التخطيط وإدارة الوقت للمديرين التنفيذيين</h4>
+                        <p>تطوير مهارات التخطيط الاستراتيجي، إدارة الوقت، تحديد الأهداف، إدارة الأولويات، وتنظيم المهام بما يعزز الإنتاجية والكفاءة التشغيلية ويحقق المواءمة مع الخطط المؤسسية طويلة المدى.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>إدارة المخاطر في التخطيط الاستراتيجي</h4>
+                        <p>بناء قدرات في تحليل وتقييم المخاطر، تطوير خطط الاستجابة والتخفيف، إدارة استمرارية الأعمال (Business Continuity Management)، ودعم المرونة المؤسسية (Organizational Resilience) لتحقيق الأهداف بكفاءة.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>مقاومة التغيير في التطوير المؤسسي</h4>
+                        <p>يهدف إلى بناء قدرات المشاركين في إدارة التغيير، تحليل سلوكيات المقاومة، تطوير خطط الاتصال والتحفيز، وتنفيذ استراتيجيات التكيف التنظيمي لتحقيق التحول المؤسسي المستدام.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>تكامل قواعد البيانات في تطوير الخدمات الحكومية</h4>
+                        <p>يركز على إدارة البيانات، تكامل النظم المعلوماتية، الحوكمة الرقمية، إدارة الجودة، ودعم اتخاذ القرار المبني على البيانات (Data-Driven Decision Making) لرفع مستوى الشفافية والكفاءة الحكومية.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>إدارة فرق العمل في بيئة التحول الرقمي</h4>
+                        <p>تعزيز مهارات القيادة الرقمية، التنسيق بين الفرق، التحفيز، إدارة الأداء باستخدام الأدوات التقنية، وإدارة فرق العمل الافتراضية (Virtual Teams) لضمان تحقيق الأداء العالي والتحول المؤسسي الفعّال.</p>
+                    </div>
+                </section>
+
+                <!-- الشهادات والدورات -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-certificate"></i> الشهادات والدورات</h2>
+                    <ul class="certificates-list">
+                        <li>التخطيط وإدارة الوقت للمديرين التنفيذيين</li>
+                        <li>إدارة استمرارية الأعمال</li>
+                        <li>إدارة التغيير ومقاومة التغيير</li>
+                        <li>تكامل قواعد البيانات</li>
+                        <li>إدارة الفرق الافتراضية</li>
+                    </ul>
+                </section>
+
+                <!-- المهارات الفنية واللغات -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-laptop-code"></i> المهارات الفنية واللغات</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Microsoft Word</div>
+                        <div class="skill-item">Microsoft Excel</div>
+                        <div class="skill-item">Microsoft PowerPoint</div>
+                        <div class="skill-item">Microsoft Outlook</div>
+                        <div class="skill-item">أدوات إدارة المشروعات</div>
+                        <div class="skill-item">اللغة العربية (اللغة الأم)</div>
+                        <div class="skill-item">اللغة الإنجليزية (جيد في القراءة والكتابة والمحادثة)</div>
+                    </div>
+                </section>
+
+                <!-- بيانات إضافية -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> بيانات إضافية</h2>
+                    <div class="personal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">الجنسية:</span>
+                            <span class="detail-value">مصري</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">الدرجة الوظيفية:</span>
+                            <span class="detail-value">الأولى قطاع حكومي</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">تاريخ الميلاد:</span>
+                            <span class="detail-value">18/11/1983</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- المراجع -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-file-contract"></i> المراجع</h2>
+                    <div class="text-block">
+                        <p>البيانات والمستندات الداعمة <strong>متاحة عند الطلب</strong>، الشهادات <strong>الدراسية، التدريبية،</strong> شهادات <strong>التكريم</strong>، ونتائج <strong>تقييم القدرات الاختبار السيكومتري (DISC) للوظائف القيادية</strong>.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- النسخة الإنجليزية -->
+            <div id="english-portfolio" class="language-en hidden">
+                <!-- Professional Summary -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
+                    <div class="text-block">
+                        <p><strong>Project Manager</strong> with over 15 years of experience in the government sector, specialized in <strong>managing and implementing strategic projects</strong> and <strong>leading</strong> digital transformation initiatives <strong>to develop</strong> and <strong>improve public services</strong>. Extensive experience in <strong>leading multidisciplinary teams</strong> and coordinating operations with <strong>government and international entities</strong>. Experienced in achieving <strong>database integration and project sustainability</strong>, flexible in <strong>facing challenges and innovating solutions</strong> that support the implementation of <strong>strategic objectives</strong>, and knowledgeable of <strong>laws and regulations</strong> governing government work and <strong>managing institutional change resistance</strong> through effective <strong>communication strategies</strong>.</p>
+                    </div>
+                </section>
+
+                <!-- Core Skills -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-cogs"></i> Core Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Strategic Project Management</div>
+                        <div class="skill-item">Digital Transformation</div>
+                        <div class="skill-item">Government Services Development</div>
+                        <div class="skill-item">Stakeholder Management</div>
+                        <div class="skill-item">Database Integration</div>
+                        <div class="skill-item">Change Management</div>
+                        <div class="skill-item">Strategic Planning</div>
+                        <div class="skill-item">Data Analysis</div>
+                        <div class="skill-item">Risk Management</div>
+                        <div class="skill-item">Business Continuity</div>
+                        <div class="skill-item">Executive Operations Management</div>
+                        <div class="skill-item">Performance Monitoring</div>
+                        <div class="skill-item">Confidential Correspondence Management</div>
+                        <div class="skill-item">Institutional Governance</div>
+                        <div class="skill-item">Virtual Teams Management</div>
+                    </div>
+                </section>
+
+                <!-- Achievements -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+                    <ul class="achievements-list">
+                        <li>Developed <strong>IT infrastructure systems</strong> for <strong>birth and death registration and routine vaccination systems</strong>, contributed to <strong>improving health service efficiency and database integration</strong> and achieving <strong>comprehensive vaccination coverage</strong> of 95% (June 2021 - Present)</li>
+                        <li><strong>Launched the Health and Population Indicators Map</strong> during the <strong>First Health and Population Conference</strong> in the New Administrative Capital to support <strong>evidence-based health planning</strong> (September 2023)</li>
+                        <li><strong>Chaired the Medical Committee</strong> during the <strong>Annual Meetings of the Islamic Development Bank Group</strong> in Sharm El-Sheikh, providing services to over 4,000 participants from 57 countries (June 2022)</li>
+                        <li><strong>Managed the Executive Secretariat for the Minister of Planning and Economic Development</strong> (2019 - 2022)</li>
+                        <li><strong>Managed and implemented the Police Department Automation and Integration Project</strong> in Alexandria Security Directorate, <strong>covering 17 police departments</strong>, to support <strong>digital transformation</strong> (2015 - 2018)</li>
+                    </ul>
+                </section>
+
+                <!-- Education -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <ul class="education-list">
+                        <li>
+                            <strong>DBA Candidate, Business Administration</strong>
+                            <p>Graduate College, Beni Suef University, Egypt (February 2025 - Present)</p>
+                        </li>
+                        <li>
+                            <strong>MBA, Financial Management</strong>
+                            <p>Arab Academy for Science, Technology & Maritime Transport, Cairo, Egypt (February 2015)</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Work Experience -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">July 2021 – Present</div>
+                            <div class="timeline-content">
+                                <h3>Project Manager – Health Services & Initiatives Development</h3>
+                                <p>Information Infrastructure Center, Egyptian Planning System, Ministry of Planning & Economic Development & International Cooperation, Cairo, Egypt</p>
+                                <ul>
+                                    <li>Managed executive operations and financial activities for integrated IT infrastructure system projects</li>
+                                    <li>Planned, developed, and directed work teams to achieve organizational goals and strategies</li>
+                                    <li>Monitored project implementation to ensure highest levels of performance and operational efficiency</li>
+                                    <li>Analyzed and documented operational processes and problems, developing effective solutions</li>
+                                    <li>Managed periodic project meetings and followed up on outputs to ensure actual implementation of recommendations</li>
+                                    <li>Ensured project outcomes aligned with strategic objectives and performance indicators</li>
+                                    <li>Communicated and coordinated with government entities and local/international partners to ensure integration</li>
+                                    <li>Innovated and studied new investment opportunities to support project development and sustainability</li>
+                                    <li>Evaluated and reviewed investment proposals according to organizational policies and strategies</li>
+                                    <li>Participated in preparing cooperation agreements with beneficiary entities and ensured implementation compliance</li>
+                                    <li>Prepared periodic progress reports to support decision-makers and policy formulation</li>
+                                    <li>Enhanced relationships with strategic partners to ensure business sustainability</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">July 2018 – June 2021</div>
+                            <div class="timeline-content">
+                                <h3>Executive Secretary to the Minister of Planning & Economic Development</h3>
+                                <p>Minister's Office Sector, Ministry of Planning & Economic Development, Cairo, Egypt</p>
+                                <ul>
+                                    <li>Prepared and organized the direct supervisor's agenda and coordinated appointments and official meetings</li>
+                                    <li>Managed confidential documents and correspondence, ensuring preservation according to highest security standards</li>
+                                    <li>Coordinated with external entities and internal units to provide reports and follow-ups</li>
+                                    <li>Provided support to the direct supervisor in official tasks domestically and internationally</li>
+                                    <li>Managed phone calls and official correspondence according to priorities</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">July 2015 – June 2018</div>
+                            <div class="timeline-content">
+                                <h3>Executive Manager – Police Department Automation Project</h3>
+                                <p>Government Services Development Program, Ministry of Planning, Follow-up & Administrative Reform, Cairo, Egypt</p>
+                                <ul>
+                                    <li>Supervised the implementation of the police department automation project in Alexandria Governorate</li>
+                                    <li>Developed work mechanisms and operational procedures to improve service efficiency</li>
+                                    <li>Analyzed and documented operational processes and developed solutions to improve performance and sustainability</li>
+                                    <li>Coordinated periodic meetings between executive teams and participating entities</li>
+                                    <li>Prepared periodic follow-up reports including achievement rates and technical/administrative recommendations</li>
+                                    <li>Contributed to supporting the government digital transformation system through implementing automated data exchange systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">July 2014 – June 2015</div>
+                            <div class="timeline-content">
+                                <h3>Auditor</h3>
+                                <p>Central Administration for Financial & Administrative Affairs, Ministry of State for Administrative Development, Cairo, Egypt</p>
+                                <ul>
+                                    <li>Reviewed and disbursed financial entitlements according to wage and incentive regulations and laws</li>
+                                    <li>Supervised payroll and bonus preparation and prepared periodic financial reports</li>
+                                    <li>Coordinated with banks and Ministry of Finance to ensure accuracy and speed of disbursement and transfer operations</li>
+                                    <li>Reviewed supplier documents and participated in tender evaluation committees</li>
+                                    <li>Monitored the application of financial policies and procedures and ensured compliance with government accounting standards</li>
+                                    <li>Contributed to improving financial and administrative control systems within the institution</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 2005 – June 2014</div>
+                            <div class="timeline-content">
+                                <h3>Assistant Project Manager / Project Coordinator / Secretary - Local Administration Linking & Automation Project</h3>
+                                <p>Government Services Development Program, Ministry of State for Administrative Development, Cairo, Egypt</p>
+                                <ul>
+                                    <li>Monitored the implementation of work plans and administrative/financial procedures according to government regulations</li>
+                                    <li>Supervised the preparation of executive work plans and determined responsibilities for each phase</li>
+                                    <li>Reviewed and analyzed operational problems and provided solutions to ensure continuity of implementation</li>
+                                    <li>Prepared presentations, performance reports, and achievement indicators to support decision-making</li>
+                                    <li>Coordinated with work teams to ensure integration of efforts in all implementation phases</li>
+                                    <li>Organized periodic meetings with implementing and beneficiary entities and followed up on recommendations</li>
+                                    <li>Represented the project in official events and conferences and communicated with government entities</li>
+                                    <li>Managed official correspondence, files, and records, and drafted reports and official memos</li>
+                                    <li>Provided administrative support to team members to ensure efficient daily workflow</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Training Experience -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Training Experience</h2>
+                    <div class="text-block">
+                        <p><strong>Experience in designing and implementing specialized training programs for employees at leadership levels and government service delivery offices,</strong> aiming to <strong>enhance institutional performance efficiency, strengthen leadership and administrative capabilities, and support digital transformation and improvement of public service efficiency,</strong> including the following key training programs:</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>Planning and Time Management for Executive Managers</h4>
+                        <p>Developing strategic planning skills, time management, goal setting, priority management, and task organization to enhance productivity and operational efficiency and achieve alignment with long-term institutional plans.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>Risk Management in Strategic Planning</h4>
+                        <p>Building capacities in risk analysis and assessment, developing response and mitigation plans, business continuity management (Business Continuity Management), and supporting organizational resilience (Organizational Resilience) to achieve objectives efficiently.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>Change Resistance in Institutional Development</h4>
+                        <p>Aims to build participants' capabilities in change management, analyzing resistance behaviors, developing communication and motivation plans, and implementing organizational adaptation strategies to achieve sustainable institutional transformation.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>Database Integration in Government Services Development</h4>
+                        <p>Focuses on data management, information systems integration, digital governance, quality management, and supporting data-driven decision making (Data-Driven Decision Making) to enhance transparency and government efficiency.</p>
+                    </div>
+                    
+                    <div class="training-program">
+                        <h4>Team Management in Digital Transformation Environment</h4>
+                        <p>Enhancing digital leadership skills, team coordination, motivation, performance management using technical tools, and managing virtual teams (Virtual Teams) to ensure high performance and effective institutional transformation.</p>
+                    </div>
+                </section>
+
+                <!-- Certificates & Courses -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-certificate"></i> Certificates & Courses</h2>
+                    <ul class="certificates-list">
+                        <li>Planning & Time Management for Executives</li>
+                        <li>Business Continuity Management</li>
+                        <li>Change Management & Resistance</li>
+                        <li>Database Integration</li>
+                        <li>Virtual Teams Management</li>
+                    </ul>
+                </section>
+
+                <!-- Technical Skills & Languages -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills & Languages</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Microsoft Word</div>
+                        <div class="skill-item">Microsoft Excel</div>
+                        <div class="skill-item">Microsoft PowerPoint</div>
+                        <div class="skill-item">Microsoft Outlook</div>
+                        <div class="skill-item">Project Management Tools</div>
+                        <div class="skill-item">Arabic (Native)</div>
+                        <div class="skill-item">English (Good in reading, writing and conversation)</div>
+                    </div>
+                </section>
+
+                <!-- Additional Information -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> Additional Information</h2>
+                    <div class="personal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Nationality:</span>
+                            <span class="detail-value">Egyptian</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Job Grade:</span>
+                            <span class="detail-value">First Grade - Government Sector</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date of Birth:</span>
+                            <span class="detail-value">18/11/1983</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- References -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-file-contract"></i> References</h2>
+                    <div class="text-block">
+                        <p>Supporting data and documents <strong>available upon request</strong>, <strong>academic certificates, training certificates,</strong> <strong>honor certificates</strong>, and results of <strong>psychometric ability assessment (DISC) for leadership positions</strong>.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 أحمد يوسف | Ahmed Yossif - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <div class="floating-action">
+        <button class="action-btn" id="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnAr = document.getElementById('btn-ar');
+            const btnEn = document.getElementById('btn-en');
+            const btnTheme = document.getElementById('btn-theme');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            const arabicPortfolio = document.getElementById('arabic-portfolio');
+            const englishPortfolio = document.getElementById('english-portfolio');
+            const nameElement = document.getElementById('name');
+            const titleElement = document.getElementById('title');
+            const locationElement = document.getElementById('location');
+            const phoneElement = document.getElementById('phone');
+            const body = document.body;
+
+            // Language toggle
+            btnAr.addEventListener('click', function() {
+                arabicPortfolio.classList.remove('hidden');
+                englishPortfolio.classList.add('hidden');
+                btnAr.classList.add('active');
+                btnEn.classList.remove('active');
+                nameElement.textContent = 'احمد محمد احمد يوسف';
+                titleElement.textContent = 'مدير مشروعات | خبير إدارة المشروعات والتحول الرقمي وتطوير الخدمات الحكومية';
+                locationElement.textContent = 'القاهرة، مصر';
+                phoneElement.textContent = '+20 100 262 2701';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                btnTheme.innerHTML = '<i class="fas fa-moon"></i> الوضع الليلي';
+            });
+
+            btnEn.addEventListener('click', function() {
+                arabicPortfolio.classList.add('hidden');
+                englishPortfolio.classList.remove('hidden');
+                btnAr.classList.remove('active');
+                btnEn.classList.add('active');
+                nameElement.textContent = 'Ahmed Mohamed Ahmed Yossif';
+                titleElement.textContent = 'Project Manager | Digital Transformation & Government Services Development Expert';
+                locationElement.textContent = 'Cairo, Egypt';
+                phoneElement.textContent = '+20 100 262 2701';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                btnTheme.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            });
+
+            // Dark mode toggle
+            btnTheme.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    if (document.documentElement.lang === 'ar') {
+                        btnTheme.innerHTML = '<i class="fas fa-sun"></i> الوضع النهاري';
+                    } else {
+                        btnTheme.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                    }
+                } else {
+                    if (document.documentElement.lang === 'ar') {
+                        btnTheme.innerHTML = '<i class="fas fa-moon"></i> الوضع الليلي';
+                    } else {
+                        btnTheme.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                    }
+                }
+            });
+
+            // Scroll to top
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.style.display = 'flex';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
